@@ -3,25 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>يقين - YaQeen</title>
+    <title>يقين - YaQeen | أحدث التشكيلات الشبابية</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* --- الألوان الأساسية --- */
+        /* --- المتغيرات والألوان --- */
         :root {
             --primary-color: #ff4757;
             --secondary-color: #2f3542;
             --dark-color: #1e272e;
             --light-color: #f1f2f6;
+            --white-color: #ffffff;
             --gradient: linear-gradient(135deg, #ff4757 0%, #ff6b81 100%);
-            --card-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            --card-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
         body {
@@ -34,15 +37,16 @@
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
 
-        /* --- الهيدر --- */
+        /* --- الهيدر والنافيجيشن --- */
         header {
-            background: rgba(30, 39, 46, 0.95);
+            background: rgba(30, 39, 46, 0.98);
             backdrop-filter: blur(10px);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            padding: 15px 0;
+            padding: 10px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         .navbar {
@@ -54,23 +58,29 @@
             margin: 0 auto;
         }
 
-                .logo-img {
-            height: 50px;
-            width: auto;
-            object-fit: contain;
+        /* الشعار النصي */
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--white-color);
+            letter-spacing: 1px;
+        }
+        
+        .logo-text span {
+            color: var(--primary-color);
         }
 
         .nav-links { 
             display: flex; 
-            gap: 30px; 
+            gap: 25px; 
         }
 
         .nav-links a {
-            color: #fff;
-            font-weight: 500;
+            color: var(--white-color);
+            font-weight: 700;
             position: relative;
             padding: 5px 0;
-            transition: 0.3s;
+            transition: var(--transition);
         }
 
         .nav-links a::after {
@@ -81,7 +91,7 @@
             width: 0;
             height: 2px;
             background: var(--primary-color);
-            transition: 0.3s;
+            transition: var(--transition);
         }
 
         .nav-links a:hover::after { width: 100%; }
@@ -91,40 +101,50 @@
             position: relative;
             cursor: pointer;
             font-size: 1.3rem;
-            color: #fff;
-            transition: 0.3s;
+            color: var(--white-color);
+            transition: var(--transition);
+            padding: 10px;
         }
 
-        .cart-icon:hover { color: var(--primary-color); transform: scale(1.1); }
+        .cart-icon:hover { color: var(--primary-color); }
 
         .cart-count {
             position: absolute;
-            top: -8px;
-            right: -8px;
+            top: 0;
+            right: 0;
             background: var(--gradient);
-            color: #fff;
+            color: var(--white-color);
             border-radius: 50%;
             width: 20px;
             height: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             font-weight: bold;
+        }
+
+        /* زر القائمة للموبايل */
+        .menu-toggle {
+            display: none;
+            color: var(--white-color);
+            font-size: 1.5rem;
+            cursor: pointer;
         }
 
         /* --- قسم الهيرو --- */
         .hero {
             height: 100vh;
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), 
-                        url('https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=1920');
+                        url('https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=1920');
             background-size: cover;
             background-position: center;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            margin-top: 0;
+            color: var(--white-color);
+            padding: 0 20px;
         }
 
         .hero-content {
@@ -132,54 +152,45 @@
         }
 
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .hero-content h1 {
-            font-size: 4rem;
-            color: #fff;
+            font-size: 3.5rem;
             margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
         }
 
         .hero-content h1 span {
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--primary-color);
         }
 
         .hero-content p {
-            font-size: 1.3rem;
-            color: #ccc;
+            font-size: 1.2rem;
+            color: #eee;
             margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .btn {
-            padding: 15px 40px;
+            padding: 12px 35px;
             background: var(--gradient);
-            color: #fff;
+            color: var(--white-color);
             border: none;
             border-radius: 30px;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: bold;
             cursor: pointer;
-            transition: 0.3s;
-            font-family: 'Tajawal', sans-serif;
-            box-shadow: 0 5px 20px rgba(255, 71, 87, 0.4);
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(255, 71, 87, 0.3);
         }
 
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 71, 87, 0.6);
+            box-shadow: 0 8px 20px rgba(255, 71, 87, 0.4);
         }
 
         /* --- قسم المنتجات --- */
@@ -212,32 +223,38 @@
         .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 35px;
+            gap: 30px;
         }
 
         .product-card {
-            background: #fff;
-            border-radius: 20px;
+            background: var(--white-color);
+            border-radius: 15px;
             overflow: hidden;
             box-shadow: var(--card-shadow);
-            transition: 0.4s;
+            transition: var(--transition);
             position: relative;
         }
 
         .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .product-img-wrapper {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
         }
 
         .product-img {
             width: 100%;
-            height: 300px;
+            height: 100%;
             object-fit: cover;
-            transition: 0.4s;
+            transition: var(--transition);
         }
 
         .product-card:hover .product-img {
-            transform: scale(1.05);
+            transform: scale(1.08);
         }
 
         .product-info {
@@ -246,37 +263,34 @@
         }
 
         .product-title {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-bottom: 10px;
             font-weight: 700;
-            color: var(--dark-color);
         }
 
         .product-price {
             color: var(--primary-color);
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 900;
-            margin-bottom: 15px;
             display: block;
+            margin-bottom: 15px;
         }
 
         .add-cart-btn {
             width: 100%;
             padding: 12px;
-            background: var(--dark-color);
-            color: #fff;
+            background: var(--secondary-color);
+            color: var(--white-color);
             border: none;
-            border-radius: 10px;
+            border-radius: 8px;
             cursor: pointer;
             font-family: 'Tajawal', sans-serif;
-            font-size: 1rem;
             font-weight: bold;
-            transition: 0.3s;
+            transition: var(--transition);
         }
 
         .add-cart-btn:hover {
-            background: var(--gradient);
-            transform: scale(1.02);
+            background: var(--primary-color);
         }
 
         .badge {
@@ -284,10 +298,10 @@
             top: 15px;
             right: 15px;
             background: var(--gradient);
-            color: #fff;
-            padding: 5px 15px;
+            color: var(--white-color);
+            padding: 5px 12px;
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: bold;
             z-index: 10;
         }
@@ -295,96 +309,114 @@
         /* --- الفوتر --- */
         footer {
             background: var(--dark-color);
-            color: #fff;
+            color: var(--white-color);
             text-align: center;
-            padding: 40px;
+            padding: 50px 20px;
             margin-top: 60px;
         }
 
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 900;
+        }
+        
+        .footer-logo span { color: var(--primary-color); }
+
         .social-icons {
-            margin-top: 20px;
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
         }
 
         .social-icons a {
-            display: inline-block;
-            width: 45px;
-            height: 45px;
-            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.05);
             border-radius: 50%;
-            line-height: 45px;
-            margin: 0 8px;
-            transition: 0.3s;
+            transition: var(--transition);
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
         .social-icons a:hover {
             background: var(--primary-color);
-            transform: translateY(-5px);
+            transform: translateY(-3px);
+            border-color: var(--primary-color);
         }
 
-        /* --- للموبايل --- */
-      @media (max-width: 768px) {
-        .hero-content h1 { font-size: 2.2rem; }
-        .nav-links { 
-            display: none; /* مخفية افتراضياً */
+        /* --- استجابة الشاشات (Responsive) --- */
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.2rem; }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                right: 0;
+                background: rgba(30, 39, 46, 0.98);
+                width: 100%;
+                padding: 20px;
+                text-align: center;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .product-grid {
+                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            }
         }
-        
-        /* أضف هذا السطر */
-        .nav-links.active {
-            display: flex;
-            flex-direction: column;
-            position: absolute;
-            top: 70px;
-            right: 0;
-            background: rgba(30, 39, 46, 0.98);
-            width: 100%;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-        }
-        
-        .product-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
-    }
     </style>
 </head>
 <body>
 
-    <!-- الهيدر -->
     <header>
         <nav class="navbar">
-            <img src="https://i.imgur.com/your-logo-image.png" alt="يقين - YaQeen" class="logo-img">
-            <ul class="nav-links">
+            <div class="logo-text">يـقـيـن<span>.</span></div>
+            
+            <ul class="nav-links" id="nav-links">
                 <li><a href="#home">الرئيسية</a></li>
-                <li><a href="#products">المتجات</a></li>
+                <li><a href="#products">المنتجات</a></li>
                 <li><a href="#about">العروض</a></li>
                 <li><a href="#contact">اتصل بنا</a></li>
             </ul>
+            
             <div class="cart-icon">
                 <i class="fas fa-shopping-bag"></i>
                 <span class="cart-count" id="cart-count">0</span>
             </div>
+
+            <div class="menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
         </nav>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
             <h1>خليك <span>أنيق</span> مع يقين</h1>
-            <p>أحدث التشكيات . أجود الخامات . سعر خاص لكل الشباب</p>
+            <p>أحدث التشكيلات . أجود الخامات . سعر خاص لكل الشباب</p>
             <button class="btn" onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})">
                 تسوق الآن
             </button>
         </div>
     </section>
 
-    <!-- قسم المنتجات -->
     <section class="products" id="products">
-        <h2 class="section-title">أحدث arrivals 🆕</h2>
+        <h2 class="section-title">أحدث التشكيلات 🆕</h2>
         <div class="product-grid">
             
-            <!-- منتج 1 -->
             <div class="product-card">
                 <span class="badge">جديد</span>
-                <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=500" alt="Hoodie 1" class="product-img">
+                <div class="product-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=500" alt="Hoodie 1" class="product-img" loading="lazy">
+                </div>
                 <div class="product-info">
                     <h3 class="product-title">هوديز أسود basic</h3>
                     <span class="product-price">349 ج.م</span>
@@ -394,9 +426,10 @@
                 </div>
             </div>
 
-            <!-- منتج 2 -->
             <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1578681994506-b8f463449011?w=500" alt="Hoodie 2" class="product-img">
+                <div class="product-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1578681994506-b8f463449011?q=80&w=500" alt="Hoodie 2" class="product-img" loading="lazy">
+                </div>
                 <div class="product-info">
                     <h3 class="product-title">هوديز كحلي winter</h3>
                     <span class="product-price">399 ج.م</span>
@@ -406,10 +439,11 @@
                 </div>
             </div>
 
-            <!-- منتج 3 -->
             <div class="product-card">
                 <span class="badge">خصم 20%</span>
-                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=500" alt="Hoodie 3" class="product-img">
+                <div class="product-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=500" alt="Hoodie 3" class="product-img" loading="lazy">
+                </div>
                 <div class="product-info">
                     <h3 class="product-title">هوديز رمادي zip</h3>
                     <span class="product-price">279 ج.م</span>
@@ -419,99 +453,52 @@
                 </div>
             </div>
 
-            <!-- منتج 4 -->
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=500" alt="Hoodie 4" class="product-img">
-                <div class="product-info">
-                    <h3 class="product-title">هوديز oversized</h3>
-                    <span class="product-price">420 ج.م</span>
-                    <button class="add-cart-btn" onclick="addToCart()">
-                        <i class="fas fa-shopping-cart"></i> إضافة للسلة
-                    </button>
-                </div>
-            </div>
-
-            <!-- منتج 5 -->
-            <div class="product-card">
-                <span class="badge">أفضل مبيع</span>
-                <img src="https://images.unsplash.com/photo-1551028919-ac66c5f8013d?w=500" alt="Hoodie 5" class="product-img">
-                <div class="product-info">
-                    <h3 class="product-title">هوديز بطباعة</h3>
-                    <span class="product-price">380 ج.م</span>
-                    <button class="add-cart-btn" onclick="addToCart()">
-                        <i class="fas fa-shopping-cart"></i> إضافة للسلة
-                    </button>
-                </div>
-            </div>
-
-            <!-- منتج 6 -->
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1544022613-e87ca75a784a?w=500" alt="Hoodie 6" class="product-img">
-                <div class="product-info">
-                    <h3 class="product-title">هوديز full zip</h3>
-                    <span class="product-price">450 ج.م</span>
-                    <button class="add-cart-btn" onclick="addToCart()">
-                        <i class="fas fa-shopping-cart"></i> إضافة للسلة
-                    </button>
-                </div>
-            </div>
-
         </div>
     </section>
 
-    <!-- الفوتر -->
     <footer id="contact">
-        <h2 class="logo">يـقـيـن <span>YAQEEN</span></h2>
+        <h2 class="footer-logo">يـقـيـن <span>YAQEEN</span></h2>
         <p style="margin-top: 10px; color: #888;">جميع الحقوق محفوظة © 2024</p>
         <div class="social-icons">
-    <a href="#"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://www.instagram.com/yaqeen.state?igsh=MThhYzV0d2k2eXk5cQ=="><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-tiktok"></i></a>
-    <a href="#"><i class="fab fa-snapchat"></i></a>
-</div>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/yaqeen.state?igsh=MThhYzV0d2k2eXk5cQ=="><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+            <a href="#"><i class="fab fa-snapchat"></i></a>
+        </div>
     </footer>
 
-   <script>
-        // --- إدارة عربة التسوق ---
-        
-        // 1. تفعيل قائمة الموبايل
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
+    <script>
+        // --- تفعيل قائمة الموبايل ---
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.getElementById('nav-links');
 
         menuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
         });
 
-        // 2. إدارة عدد المنتجات
+        // --- إدارة عربة التسوق (LocalStorage) ---
+        let count = localStorage.getItem('cartCount') ? parseInt(localStorage.getItem('cartCount')) : 0;
         const cartCountElement = document.getElementById('cart-count');
         
-        // الحصول على العدد الحالي من الـ LocalStorage أو تعيينه 0
-        let count = localStorage.getItem('cartCount') ? parseInt(localStorage.getItem('cartCount')) : 0;
-        
-        // تحديث الرقم في الشاشة فور تحميل الصفحة
+        // تحديث الرقم عند تحميل الصفحة
         cartCountElement.innerText = count;
 
         function addToCart() {
-            // زيادة العداد
             count++;
-            
-            // حفظ العدد الجديد في المتصفح
-            localStorage.setItem('cartCount', count);
-            
-            // تحديث الرقم في الشاشة
+            localStorage.setItem('cartCount', count); // حفظ في الـ LocalStorage
             cartCountElement.innerText = count;
             
-            // إضافة تأثير حركي بسيط للعداد
+            // Animation
             cartCountElement.style.transform = 'scale(1.3)';
             setTimeout(() => {
                 cartCountElement.style.transform = 'scale(1)';
             }, 150);
 
-            // إظهار رسالة النجاح
+            // Toast notification
             showToast("✅ تم إضافة المنتج للسلة!");
         }
 
-        // 3. رسالة الإشعار
+        // --- رسالة الإشعار ---
         function showToast(message) {
             const toast = document.createElement('div');
             toast.style.cssText = `
@@ -528,12 +515,15 @@
                 box-shadow: 0 10px 30px rgba(255,71,87,0.4);
                 font-family: 'Tajawal', sans-serif;
                 transition: opacity 0.5s;
-                opacity: 1;
+                opacity: 0;
             `;
             toast.innerText = message;
             document.body.appendChild(toast);
             
-            // حذف الرسالة بعد ثانيتين
+            // Fade in
+            setTimeout(() => { toast.style.opacity = '1'; }, 10);
+            
+            // Fade out and remove
             setTimeout(() => {
                 toast.style.opacity = '0';
                 setTimeout(() => {
